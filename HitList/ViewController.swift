@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         title = "List"
         
@@ -127,11 +126,11 @@ extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 //        let person = people[indexPath.row]
-        let person2 = Persons().initWithAttributes(attributes: people[indexPath.row])
+        let person2:Persons = Persons().initWithAttributes(attributes: people[indexPath.row]) as! Persons
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         
-        cell?.textLabel?.text = (person2 as AnyObject).name
+        cell?.textLabel?.text = person2.name
         
         return cell!
         
